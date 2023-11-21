@@ -6,7 +6,7 @@
 ### Phase 1
 - [x] **requirement 1**
 - [x] **requirement 2**
-- [ ] **requirement 3**
+- [x] **requirement 3**
 - [ ] **requirement 4**
 - [ ] **requirement 5**
 - [ ] **requirement 6**

@@ -33,6 +33,15 @@ namespace our
             // TODO: (Req 2) Write this function
             //  remember to store the number of elements in "elementCount" since you will need it for drawing
             //  For the attribute locations, use the constants defined above: ATTRIB_LOC_POSITION, ATTRIB_LOC_COLOR, etc
+             elementCount = (GLsizei)elements.size();
+            
+
+
+            // Note: changing the order of buffer binding affects the perfromance
+            // vertex buffer should be the first to be bound
+            // GLuint vertex_array;
+            glGenVertexArrays(1, &VAO);
+            glBindVertexArray(VAO);
 
             // GLuint vertex_buffer;
             glGenBuffers(1, &VBO);
@@ -44,19 +53,15 @@ namespace our
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
             glBufferData(GL_ELEMENT_ARRAY_BUFFER, elements.size() * sizeof(unsigned int), &elements[0], GL_STATIC_DRAW);
 
-            // GLuint vertex_array;
-            glGenVertexArrays(1, &VAO);
-            glBindVertexArray(VAO);
-
-            glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        
 
             // GLint position_loc = 0; // glGetAttribLocation(program, "position");
             glEnableVertexAttribArray(ATTRIB_LOC_POSITION);
-            glVertexAttribPointer(ATTRIB_LOC_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof(our::Vertex), (void *)offsetof(Vertex, position));
+            glVertexAttribPointer(ATTRIB_LOC_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *)offsetof(Vertex, position));
 
             // GLint color_loc = 1; // glGetAttribLocation(program, "color");
             glEnableVertexAttribArray(ATTRIB_LOC_COLOR);
-            glVertexAttribPointer(ATTRIB_LOC_COLOR, 4, GL_UNSIGNED_BYTE, true, sizeof(our::Vertex), (void *)offsetof(Vertex, color));
+            glVertexAttribPointer(ATTRIB_LOC_COLOR, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), (void *)offsetof(Vertex, color));
 
             // set and enable TEX_COORD attribute
             glVertexAttribPointer(ATTRIB_LOC_TEXCOORD, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *)offsetof(Vertex, tex_coord));
@@ -67,9 +72,7 @@ namespace our
             glEnableVertexAttribArray(ATTRIB_LOC_NORMAL);
 
             // glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-
             glBindVertexArray(0);
-            elementCount = (GLsizei)elements.size();
         }
 
         // this function should render the mesh
@@ -77,7 +80,7 @@ namespace our
         {
             // TODO: (Req 2) Write this function
             glBindVertexArray(VAO);
-            glDrawElements(GL_TRIANGLES, elementCount, GL_UNSIGNED_SHORT, 0);
+            glDrawElements(GL_TRIANGLES, elementCount, GL_UNSIGNED_INT, 0);
             glBindVertexArray(0);
         }
 
