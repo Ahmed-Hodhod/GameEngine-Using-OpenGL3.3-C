@@ -9,7 +9,7 @@
 - [x] **requirement 3**
 - [x] **requirement 4**
 - [x] **requirement 5**
-- [ ] **requirement 6**
+- [x] **requirement 6**
 - [ ] **requirement 7**
 - [ ] **requirement 8**
 - [ ] **requirement 9**
