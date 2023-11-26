@@ -42,6 +42,21 @@ namespace our {
         // For example, if faceCulling.enabled is true, you should call glEnable(GL_CULL_FACE), otherwise, you should call glDisable(GL_CULL_FACE)
         void setup() const {
             //TODO: (Req 4) Write this function
+            faceCulling.enabled ? glEnable(GL_CULL_FACE) : glDisable(GL_CULL_FACE); 
+            glFrontFace(faceCulling.frontFace);
+            glCullFace(faceCulling.culledFace);
+
+            glColorMask(colorMask.r, colorMask.g, colorMask.b, colorMask.a);
+            glDepthMask(depthMask);
+
+
+            depthTesting.enabled ? glEnable(GL_DEPTH_TEST) : glDisable(GL_DEPTH_TEST); 
+            glDepthFunc(depthTesting.function);
+
+            blending.enabled ? glEnable(GL_BLEND) : glDisable(GL_BLEND);
+            glBlendEquation(blending.equation);
+            glBlendColor(blending.constantColor.r, blending.constantColor.g, blending.constantColor.b, blending.constantColor.a);
+            glBlendFunc(blending.sourceFactor, blending.destinationFactor);
         }
 
         // Given a json object, this function deserializes a PipelineState structure
