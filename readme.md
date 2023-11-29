@@ -11,11 +11,10 @@
 - [x] **requirement 5**
 - [x] **requirement 6**
 - [x] **requirement 7**
-- [ ] **requirement 8**
+- [x] **requirement 8**
 - [ ] **requirement 9**
 - [ ] **requirement 10**
 - [ ] **requirement 11**
-- [ ] **requirement 12**
 
 
 ### Tools and Technologies
