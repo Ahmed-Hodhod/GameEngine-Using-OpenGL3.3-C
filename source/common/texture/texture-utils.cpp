@@ -54,6 +54,7 @@ our::Texture2D* our::texture_utils::loadImage(const std::string& filename, bool 
     }
     texture->bind();
     //glTexImage2D(GL_TEXTURE_2D, #mipmapLevel, #internalFormat, width, height, 0, #format, #type, data)
+    // takes the internal format and output it into RGBA type 
     glTexImage2D(GL_TEXTURE_2D, 0, format, size.x, size.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
     //Generate mipmaps if requested
     if (generate_mipmap) glGenerateMipmap(GL_TEXTURE_2D);

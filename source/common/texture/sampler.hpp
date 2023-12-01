@@ -39,6 +39,9 @@ namespace our {
         // This can be used to set the filtering and wrapping parameters
         void set(GLenum parameter, GLint value) const {
             //TODO: (Req 6) Complete this function
+            // glSampleParameteri(GLuint sampler, GLenum pname, GLint param);
+            // parameter: GL_TEXTURE_MAG_FILTER, GL_TEXTURE_MIN_FILTER, GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T
+            // value: GL_NEAREST, GL_LINEAR, GL_NEAREST_MIPMAP_NEAREST, GL_LINEAR_MIPMAP_NEAREST, GL_NEAREST_MIPMAP_LINEAR, GL_LINEAR_MIPMAP_LINEAR
             glSamplerParameteri(name, parameter, value);
 
         }

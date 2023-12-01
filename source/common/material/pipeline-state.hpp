@@ -26,9 +26,9 @@ namespace our {
         // This set of pipeline options specifies whether blending will be used or not and how it will be configured
         struct {
             bool enabled = false;
-            GLenum equation = GL_FUNC_ADD;
-            GLenum sourceFactor = GL_SRC_ALPHA;
-            GLenum destinationFactor = GL_ONE_MINUS_SRC_ALPHA;
+            GLenum equation = GL_FUNC_ADD; //possible values: GL_FUNC_ADD, GL_FUNC_SUBTRACT, GL_FUNC_REVERSE_SUBTRACT, GL_MIN, GL_MAX
+            GLenum sourceFactor = GL_SRC_ALPHA; //possible values: GL_ZERO, GL_ONE, GL_SRC_COLOR, GL_ONE_MINUS_SRC_COLOR
+            GLenum destinationFactor = GL_ONE_MINUS_SRC_ALPHA; //possible values: GL_ZERO, GL_ONE, GL_SRC_COLOR
             glm::vec4 constantColor = {0, 0, 0, 0};
         } blending;
 
@@ -42,16 +42,20 @@ namespace our {
         // For example, if faceCulling.enabled is true, you should call glEnable(GL_CULL_FACE), otherwise, you should call glDisable(GL_CULL_FACE)
         void setup() const {
             //TODO: (Req 4) Write this function
-            faceCulling.enabled ? glEnable(GL_CULL_FACE) : glDisable(GL_CULL_FACE); 
+            faceCulling.enabled ? glEnable(GL_CULL_FACE) : glDisable(GL_CULL_FACE);
+            // these lines don't have a meaning if faceCulling.enabled is false (doesn't matter what values they have) 
             glFrontFace(faceCulling.frontFace);
             glCullFace(faceCulling.culledFace);
 
+            // false values means I don't change the color of already drawn thing , if all are false , then I don't draw anything
             glColorMask(colorMask.r, colorMask.g, colorMask.b, colorMask.a);
+            
+            // false means I don't change the depth of the object
             glDepthMask(depthMask);
 
 
             depthTesting.enabled ? glEnable(GL_DEPTH_TEST) : glDisable(GL_DEPTH_TEST); 
-            glDepthFunc(depthTesting.function);
+            glDepthFunc(depthTesting.function); //default is GL_LESS
 
             blending.enabled ? glEnable(GL_BLEND) : glDisable(GL_BLEND);
             glBlendEquation(blending.equation);
@@ -60,7 +64,7 @@ namespace our {
         }
 
         // Given a json object, this function deserializes a PipelineState structure
-        void deserialize(const nlohmann::json& data);
+        void deserialize(const nlohmann::json& data); 
     };
 
 }
