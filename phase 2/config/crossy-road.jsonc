@@ -1,0 +1,3134 @@
+{
+    "start-scene": "menu",
+    "window":
+    {
+        "title":"Default Game Window",
+        "size":{
+            "width":1280,
+            "height":720
+        },
+        "fullscreen": false
+    },
+    "scene": {
+        "renderer":{
+            "sky": "assets/textures/sky.jpg",
+            "postprocess": "assets/shaders/postprocess/nightVision_maybe.frag"
+        },
+        "assets":{
+            "shaders":{
+                "tinted":{
+                    "vs":"assets/shaders/tinted.vert",
+                    "fs":"assets/shaders/tinted.frag"
+                },
+                "textured":{
+                    "vs":"assets/shaders/textured.vert",
+                    "fs":"assets/shaders/textured.frag"
+                },
+                "lit":{
+                    "vs":"assets/shaders/textured-lit.vert",
+                    "fs":"assets/shaders/textured-lit.frag"
+                }
+            },
+            "textures":{
+                "chicken": "assets/textures/crossy-road/chicken.png",
+                "car": "assets/textures/crossy-road/car.png",
+                "tree": "assets/textures/crossy-road/tree.png",
+                "cone-tree": "assets/textures/crossy-road/cone-tree.png",
+                "rock": "assets/textures/crossy-road/rock.png",
+                "stump": "assets/textures/crossy-road/stump.png",
+                "asphalt-specular": "assets/textures/crossy-road/asphalt/specular.jpg",
+                "asphalt-ambient": "assets/textures/crossy-road/asphalt/ambient.png",
+                "asphalt-roughness": "assets/textures/crossy-road/asphalt/roughness.png",
+                "asphalt-albedo": "assets/textures/crossy-road/asphalt/diffuse.jpg",
+                "tile-specular": "assets/textures/crossy-road/tiles/diffuse.png",
+                "tile-ambient": "assets/textures/crossy-road/tiles/ambient.png",
+                "tile-roughness": "assets/textures/crossy-road/tiles/diffuse.png",
+                "tile-albedo": "assets/textures/crossy-road/tiles/diffuse.png",
+                "finish": "assets/textures/crossy-road/finish.jpg",
+                //win state textures
+                "glass": "assets/textures/glass-panels.png",
+                "monkey": "assets/textures/monkey.png",
+                "monkey-albedo": "assets/textures/monkey.png",
+                "monkey-specular-smooth": "assets/textures/Metal/specular.jpg",
+                "monkey-specular-rough": "assets/textures/wood/specular.jpg",
+                "monkey-roughness-smooth": "assets/textures/Metal/specular.jpg",
+                "monkey-roughness-rough": "assets/textures/wood/roughness.jpg",
+                "monkey-emissive": "assets/textures/asphalt/emissive.jpg",
+                "monkey-ambient": "assets/textures/suzanne/ambient_occlusion.jpg"
+            },
+            "meshes":{
+                "chicken": "assets/models/crossy-road/chicken.obj",
+                "car": "assets/models/crossy-road/car.obj",
+                "fence": "assets/models/crossy-road/fence.obj",
+                "tree": "assets/models/crossy-road/tree.obj",
+                "cone-tree": "assets/models/crossy-road/cone-tree.obj",
+                "rock": "assets/models/crossy-road/rock.obj",
+                "stump": "assets/models/crossy-road/stump.obj",
+                
+                "cube": "assets/models/cube.obj",
+                "monkey": "assets/models/monkey.obj",
+                "plane": "assets/models/plane.obj"
+            },
+            "samplers":{
+                "default":{
+                    "MAG_FILTER": "GL_LINEAR",
+                    "MIN_FILTER": "GL_LINEAR_MIPMAP_LINEAR",
+                    "WRAP_S": "GL_REPEAT",
+                    "WRAP_T": "GL_REPEAT"
+                },
+                "pixelated":{
+                    "MAG_FILTER": "GL_NEAREST",
+                    "MIN_FILTER": "GL_NEAREST"
+                }
+            },
+            "materials":{
+                "chicken":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "diffuse": [1, 1, 1],
+                    "specular": [1, 1, 1],
+                    "shininess": 10,
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": true
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "chicken",
+                    "sampler": "pixelated"
+                },
+                "car":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "diffuse": [1, 1, 1],
+                    "specular": [1, 1, 1],
+                    "shininess": 10,
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": true
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "car",
+                    "sampler": "pixelated"
+                },
+                "tree":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "diffuse": [1, 1, 1],
+                    "specular": [1, 1, 1],
+                    "ambient": [1, 1, 1],
+                    "shininess": 10,
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": true
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "tree",
+                    "sampler": "pixelated"
+                },
+                "cone-tree":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "diffuse": [1, 1, 1],
+                    "specular": [1, 1, 1],
+                    "ambient": [1, 1, 1],
+                    "shininess": 10,
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": true
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "cone-tree",
+                    "sampler": "pixelated"
+                },
+                "rock":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "diffuse": [1, 1, 1],
+                    "specular": [1, 1, 1],
+                    "ambient": [1, 1, 1],
+                    "shininess": 10,
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": true
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "rock",
+                    "sampler": "default"
+                },
+                "stump":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "diffuse": [1, 1, 1],
+                    "specular": [1, 1, 1],
+                    "ambient": [1, 1, 1],
+                    "shininess": 10,
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": true
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "stump",
+                    "sampler": "default"
+                },
+                "tile":{
+                    "type": "lit",
+                    "shader": "lit",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": true
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "sampler": "default",
+                    "albedo": "tile-albedo",
+                    "specular": "tile-specular",
+                    "roughness": "tile-roughness",
+                    "ambientOcclusion": "tile-ambient"
+                },
+                "asphalt":{
+                    "type": "lit",
+                    "shader": "lit",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": true
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "sampler": "default",
+                    "albedo": "asphalt-albedo",
+                    "specular": "asphalt-specular",
+                    "roughness": "asphalt-roughness",
+                    "ambientOcclusion": "asphalt-ambient"
+                },
+                "fence":{
+                    "type": "tinted",
+                    "shader": "tinted",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": true
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "ambient": [0.8, 0.8, 0.8],
+                    "specular": [0.3, 0.3, 0.3],
+                    "diffuse": [1, 1, 1],
+                    "tint": [1, 1, 1, 1]
+                },
+                "finish": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": true
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "ambient": [0.8, 0.8, 0.8],
+                    "specular": [0.3, 0.3, 0.3],
+                    "diffuse": [1, 1, 1],
+                    "tint": [1, 1, 1, 1],
+                    "texture": "finish",
+                    "sampler": "pixelated"
+                },
+
+
+                //win state materials
+                "monkey":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "ambient": [0.1, 0.1, 0.1],
+                    "specular": [0, 1, 1],
+                    "diffuse": [1, 0, 0],
+                    "shininess": 20,
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": true
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "monkey",
+                    "sampler": "default"
+                },
+                "monkey-rough":{
+                    "type": "lit",
+                    "shader": "lit",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": true
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "sampler": "default",
+                    "specular": "monkey-specular-rough",
+                    "albedo": "monkey-albedo",
+                    "roughness": "monkey-roughness-rough"
+                },
+                "monkey-smooth":{
+                    "type": "lit",
+                    "shader": "lit",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": true
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    // "albedo": "albedo",
+                    "sampler": "default",
+                    "specular": "monkey-specular-smooth",
+                    "roughness": "monkey-roughness-smooth"
+                },
+                "monkey-emissive":{
+                    "type": "lit",
+                    "shader": "lit",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": true
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "sampler": "default",
+                    "albedo": "monkey-albedo",
+                    "emissive": "monkey-emissive"
+                },
+                "glass":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        },
+                        "blending":{
+                            "enabled": true,
+                            "sourceFactor": "GL_SRC_ALPHA",
+                            "destinationFactor": "GL_ONE_MINUS_SRC_ALPHA"
+                        },
+                        "depthMask": false
+                    },
+                    "transparent": true,
+                    "tint": [1, 1, 1, 1],
+                    "specular": [1, 0, 0],
+                    "diffuse": [1, 0, 0],
+                    "shininess": 200,
+                    "texture": "glass",
+                    "sampler": "pixelated"
+                }
+            }
+        },
+        "world":[
+            {
+                "rotation": [-55, 0, 0],
+                "components": [
+                    {
+                        "type": "Camera",
+                        "cameraType": "perspective",
+                        "near": 0.3,
+                        "far": 1000,
+                        "fovY": 60
+                    }
+                ]
+            },
+            {
+                "name": "player",
+                "position": [0, 1, 5],
+                "rotation": [0, 180, 0],
+                "scale": [40, 60, 40],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "chicken",
+                        "material": "chicken"
+                    }
+                ]
+            },
+            {
+                "name": "car",
+                "position": [0, 0, -1.1],
+                "rotation": [0, 90, 0],
+                "scale": [0.5555, 0.5555, 0.5555],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "car",
+                        "material": "car"
+                    }
+                ],
+                "children": [
+                    {
+                        "name": "light",
+                        "position": [1.207, 1.567, 2.55],
+                        "rotation": [-20, 0, 0],
+                        "components": [
+                            {
+                                "type": "Light",
+                                "lightType": "spot",
+                                "cone": [90, 10],
+                                "specular": [0.7, 0.7, 0.7],
+                                "diffuse": [0.8, 0.8, 0.8],
+                                "ambient": [0.0, 0.0, 0.0],
+                                "attenuation": [0.3, 0, 0]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "light",
+                        "position": [-1.207, 1.567, 2.55],
+                        "rotation": [-20, 0, 0],
+                        "components": [
+                            {
+                                "type": "Light",
+                                "lightType": "spot",
+                                "cone": [90, 10],
+                                "specular": [0.7, 0.7, 0.7],
+                                "diffuse": [0.8, 0.8, 0.8],
+                                "ambient": [0.0, 0.0, 0.0],
+                                "attenuation": [0.3, 0, 0]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "car",
+                "position": [0, 0, 2],
+                "rotation": [0, -90, 0],
+                "scale": [0.5555, 0.5555, 0.5555],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "car",
+                        "material": "car"
+                    }
+                ],
+                "children": [
+                    {
+                        "name": "light",
+                        "position": [1.207, 1.567, 2.55],
+                        "rotation": [-20, 0, 0],
+                        "components": [
+                            {
+                                "type": "Light",
+                                "lightType": "spot",
+                                "cone": [90, 10],
+                                "specular": [0.7, 0.7, 0.7],
+                                "diffuse": [0.8, 0.8, 0.8],
+                                "ambient": [0.0, 0.0, 0.0],
+                                "attenuation": [0.3, 0, 0]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "light",
+                        "position": [-1.207, 1.567, 2.55],
+                        "rotation": [-20, 0, 0],
+                        "components": [
+                            {
+                                "type": "Light",
+                                "lightType": "spot",
+                                "cone": [90, 10],
+                                "specular": [0.7, 0.7, 0.7],
+                                "diffuse": [0.8, 0.8, 0.8],
+                                "ambient": [0.0, 0.0, 0.0],
+                                "attenuation": [0.3, 0, 0]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "car",
+                "position": [0, 0, -6],
+                "rotation": [0, -90, 0],
+                "scale": [0.5555, 0.5555, 0.5555],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "car",
+                        "material": "car"
+                    }
+                ],
+                "children": [
+                    {
+                        "name": "light",
+                        "position": [1.207, 1.567, 2.55],
+                        "rotation": [-20, 0, 0],
+                        "components": [
+                            {
+                                "type": "Light",
+                                "lightType": "spot",
+                                "cone": [90, 10],
+                                "specular": [0.7, 0.7, 0.7],
+                                "diffuse": [0.8, 0.8, 0.8],
+                                "ambient": [0.0, 0.0, 0.0],
+                                "attenuation": [0.3, 0, 0]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "light",
+                        "position": [-1.207, 1.567, 2.55],
+                        "rotation": [-20, 0, 0],
+                        "components": [
+                            {
+                                "type": "Light",
+                                "lightType": "spot",
+                                "cone": [90, 10],
+                                "specular": [0.7, 0.7, 0.7],
+                                "diffuse": [0.8, 0.8, 0.8],
+                                "ambient": [0.0, 0.0, 0.0],
+                                "attenuation": [0.3, 0, 0]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "car",
+                "position": [0, 0, -9.1],
+                "rotation": [0, 90, 0],
+                "scale": [0.5555, 0.5555, 0.5555],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "car",
+                        "material": "car"
+                    }
+                ],
+                "children": [
+                    {
+                        "name": "light",
+                        "position": [1.207, 1.567, 2.55],
+                        "rotation": [-20, 0, 0],
+                        "components": [
+                            {
+                                "type": "Light",
+                                "lightType": "spot",
+                                "cone": [90, 10],
+                                "specular": [0.7, 0.7, 0.7],
+                                "diffuse": [0.8, 0.8, 0.8],
+                                "ambient": [0.0, 0.0, 0.0],
+                                "attenuation": [0.3, 0, 0]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "light",
+                        "position": [-1.207, 1.567, 2.55],
+                        "rotation": [-20, 0, 0],
+                        "components": [
+                            {
+                                "type": "Light",
+                                "lightType": "spot",
+                                "cone": [90, 10],
+                                "specular": [0.7, 0.7, 0.7],
+                                "diffuse": [0.8, 0.8, 0.8],
+                                "ambient": [0.0, 0.0, 0.0],
+                                "attenuation": [0.3, 0, 0]
+                            }
+                        ]
+                    }
+                ]
+            },
+
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [0, 0, 6],
+                "rotation": [0, 0, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [1.59, 0, 6],
+                "rotation": [0, 0, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [-1.59, 0, 6],
+                "rotation": [0, 0, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [3.18, 0, 6],
+                "rotation": [0, 0, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [-3.18, 0, 6],
+                "rotation": [0, 0, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [0, 0.01, 6],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [1, 0.01, 6],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-1, 0.01, 6],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [2, 0.01, 6],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-2, 0.01, 6],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [3, 0.01, 6],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-3, 0.01, 6],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [4, 0.01, 6],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-4, 0.01, 6],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [5, 0.01, 6],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-5, 0.01, 6],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            //rock
+            {
+                "name": "rock",
+                "scale": [30, 30, 30],
+                "position": [-3.2, 0, 0.43],
+                "rotation": [0, 0, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "rock",
+                        "material": "rock"
+                    }
+                ]
+            },
+            // {
+            //     "name": "rock",
+            //     "scale": [30, 30, 30],
+            //     "position": [0, 0, -2.75],
+            //     "rotation": [0, 0, 0],
+            //     "components": [
+            //         {
+            //             "type": "Mesh Renderer",
+            //             "mesh": "rock",
+            //             "material": "rock"
+            //         }
+            //     ]
+            // },
+            // {
+            //     "name": "rock",
+            //     "scale": [30, 30, 30],
+            //     "position": [1.5, 0, -2.75],
+            //     "rotation": [0, 0, 0],
+            //     "components": [
+            //         {
+            //             "type": "Mesh Renderer",
+            //             "mesh": "rock",
+            //             "material": "rock"
+            //         }
+            //     ]
+            // },
+            // {
+            //     "name": "rock",
+            //     "scale": [30, 30, 30],
+            //     "position": [-2, 0, -4.34],
+            //     "rotation": [0, 0, 0],
+            //     "components": [
+            //         {
+            //             "type": "Mesh Renderer",
+            //             "mesh": "rock",
+            //             "material": "rock"
+            //         }
+            //     ]
+            // },
+            // {
+            //     "name": "rock",
+            //     "scale": [30, 30, 30],
+            //     "position": [1, 0, -7.52],
+            //     "rotation": [0, 0, 0],
+            //     "components": [
+            //         {
+            //             "type": "Mesh Renderer",
+            //             "mesh": "rock",
+            //             "material": "rock"
+            //         }
+            //     ]
+            // },
+            //stump
+            {
+                "name": "stump",
+                "scale": [30, 30, 30],
+                "position": [0, 0, -2.5],
+                "rotation": [0, 0, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "stump",
+                        "material": "stump"
+                    }
+                ]
+            },
+            {
+                "name": "stump",
+                "scale": [30, 30, 30],
+                "position": [3.2, 0, -7.3],
+                "rotation": [0, 0, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "stump",
+                        "material": "stump"
+                    }
+                ]
+            },
+            // {
+            //     "name": "stump",
+            //     "scale": [30, 30, 30],
+            //     "position": [0, 0, 0.43],
+            //     "rotation": [0, 0, 0],
+            //     "components": [
+            //         {
+            //             "type": "Mesh Renderer",
+            //             "mesh": "stump",
+            //             "material": "stump"
+            //         }
+            //     ]
+            // },
+            // {
+            //     "name": "stump",
+            //     "scale": [30, 30, 30],
+            //     "position": [3, 0, -2.75],
+            //     "rotation": [0, 0, 0],
+            //     "components": [
+            //         {
+            //             "type": "Mesh Renderer",
+            //             "mesh": "stump",
+            //             "material": "stump"
+            //         }
+            //     ]
+            // },
+            // {
+            //     "name": "stump",
+            //     "scale": [30, 30, 30],
+            //     "position": [0, 0, -4.34],
+            //     "rotation": [0, 0, 0],
+            //     "components": [
+            //         {
+            //             "type": "Mesh Renderer",
+            //             "mesh": "stump",
+            //             "material": "stump"
+            //         }
+            //     ]
+            // },
+            // {
+            //     "name": "stump",
+            //     "scale": [30, 30, 30],
+            //     "position": [-1, 0, -7.52],
+            //     "rotation": [0, 0, 0],
+            //     "components": [
+            //         {
+            //             "type": "Mesh Renderer",
+            //             "mesh": "stump",
+            //             "material": "stump"
+            //         }
+            //     ]
+            // },
+            
+            //tree
+            {
+                "name": "tree",
+                "scale": [0.15, 0.15, 0.15],
+                "position": [-3.2, 0, 4.5],
+                "rotation": [0, 0, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "tree",
+                        "material": "tree"
+                    }
+                ]
+            },
+            {
+                "name": "tree",
+                "scale": [0.15, 0.15, 0.15],
+                "position": [3.2, 0, 4.5],
+                "rotation": [0, 0, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "tree",
+                        "material": "tree"
+                    }
+                ]
+            },
+            // {
+            //     "name": "tree",
+            //     "scale": [0.15, 0.15, 0.15],
+            //     "position": [-1, 0, 0.43],
+            //     "rotation": [0, 0, 0],
+            //     "components": [
+            //         {
+            //             "type": "Mesh Renderer",
+            //             "mesh": "tree",
+            //             "material": "tree"
+            //         }
+            //     ]
+            // },
+            {
+                "name": "tree",
+                "scale": [0.15, 0.15, 0.15],
+                "position": [-5.6, 0, -4.34],
+                "rotation": [0, 0, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "tree",
+                        "material": "tree"
+                    }
+                ]
+            },
+            {
+                "name": "tree",
+                "scale": [0.15, 0.15, 0.15],
+                "position": [-3.18, 0, -2.75],
+                "rotation": [0, 0, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "tree",
+                        "material": "tree"
+                    }
+                ]
+            },
+            //cone-tree
+            {
+                "name": "cone-tree",
+                "scale": [30, 30, 30],
+                "position": [3.2, 0, 0.43],
+                "rotation": [0, 0, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "cone-tree",
+                        "material": "cone-tree"
+                    }
+                ]
+            },
+            {
+                "name": "cone-tree",
+                "scale": [30, 30, 30],
+                "position": [3.2, 0, -4.34],
+                "rotation": [0, 0, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "cone-tree",
+                        "material": "cone-tree"
+                    }
+                ]
+            },
+            {
+                "name": "cone-tree",
+                "scale": [30, 30, 30],
+                "position": [-3.2, 0, -7.52],
+                "rotation": [0, 0, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "cone-tree",
+                        "material": "cone-tree"
+                    }
+                ]
+            },
+
+            {
+                "name": "floor",
+                "position": [0, 0.05, 5],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [2, 0.05, 5],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-2, 0.05, 5],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [4, 0.05, 5],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-4, 0.05, 5],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [6, 0.05, 5],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-6, 0.05, 5],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [8, 0.05, 5],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-8, 0.05, 5],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [10, 0.05, 5],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-10, 0.05, 5],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            //2
+            {
+                "name": "floor",
+                "position": [0, 0.05, 4],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [2, 0.05, 4],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-2, 0.05, 4],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [4, 0.05, 4],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-4, 0.05, 4],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [6, 0.05, 4],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-6, 0.05, 4],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [8, 0.05, 4],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-8, 0.05, 4],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [10, 0.05, 4],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-10, 0.05, 4],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            
+
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [4.77, 0, 6],
+                "rotation": [0, 0, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [-4.77, 0, 6],
+                "rotation": [0, 0, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [5.565, 0, 5.2],
+                "rotation": [0, 90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [-5.565, 0, 5.2],
+                "rotation": [0, -90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [5.565, 0, 3.61],
+                "rotation": [0, 90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [-5.565, 0, 3.61],
+                "rotation": [0, -90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            //
+            {
+                "name": "floor",
+                "position": [0, 0.01, 0.43],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [2, 0.01, 0.43],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-2, 0.01, 0.43],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [4, 0.01, 0.43],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-4, 0.01, 0.43],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [6, 0.01, 0.43],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-6, 0.01, 0.43],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [8, 0.01, 0.43],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-8, 0.01, 0.43],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [10, 0.01, 0.43],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-10, 0.01, 0.43],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [12, 0.01, 0.43],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-12, 0.01, 0.43],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [5.565, 0, 0.43],
+                "rotation": [0, 90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [-5.565, 0, 0.43],
+                "rotation": [0, -90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [5.565, 0, -2.75],
+                "rotation": [0, 90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [-5.565, 0, -2.75],
+                "rotation": [0, -90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [5.565, 0, -4.34],
+                "rotation": [0, 90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [-5.565, 0, -4.34],
+                "rotation": [0, -90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            //
+            {
+                "name": "floor",
+                "position": [0, 0.01, -2.75],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [2, 0.01, -2.75],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-2, 0.01, -2.75],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [4, 0.01, -2.75],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-4, 0.01, -2.75],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [6, 0.01, -2.75],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-6, 0.01, -2.75],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [8, 0.01, -2.75],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-8, 0.01, -2.75],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [10, 0.01, -2.75],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-10, 0.01, -2.75],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [12, 0.01, -2.75],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-12, 0.01, -2.75],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            //
+            {
+                "name": "floor",
+                "position": [0, 0.01, -4.34],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [2, 0.01, -4.34],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-2, 0.01, -4.34],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [4, 0.01, -4.34],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-4, 0.01, -4.34],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [6, 0.01, -4.34],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-6, 0.01, -4.34],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [8, 0.01, -4.34],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-8, 0.01, -4.34],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [10, 0.01, -4.34],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-10, 0.01, -4.34],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [12, 0.01, -4.34],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-12, 0.01, -4.34],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+
+
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [5.565, 0, -7.52],
+                "rotation": [0, 90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [-5.565, 0, -7.52],
+                "rotation": [0, -90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            //
+            {
+                "name": "floor",
+                "position": [0, 0.01, -7.52],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [2, 0.01, -7.52],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-2, 0.01, -7.52],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [4, 0.01, -7.52],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-4, 0.01, -7.52],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [6, 0.01, -7.52],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-6, 0.01, -7.52],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [8, 0.01, -7.52],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-8, 0.01, -7.52],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [10, 0.01, -7.52],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-10, 0.01, -7.52],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [12, 0.01, -7.52],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-12, 0.01, -7.52],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 0.8],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [5.565, 0, -10.7],
+                "rotation": [0, 90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [-5.565, 0, -10.7],
+                "rotation": [0, -90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [5.565, 0, -12.29],
+                "rotation": [0, 90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [-5.565, 0, -12.29],
+                "rotation": [0, -90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [5.565, 0, -13.88],
+                "rotation": [0, 90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [-5.565, 0, -13.88],
+                "rotation": [0, -90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [5.565, 0, -15.47],
+                "rotation": [0, 90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [-5.565, 0, -15.47],
+                "rotation": [0, -90, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [0, 0, -16.28],
+                "rotation": [0, 180, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [1.59, 0, -16.28],
+                "rotation": [0, 180, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [-1.59, 0, -16.28],
+                "rotation": [0, 180, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [3.18, 0, -16.28],
+                "rotation": [0, 180, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [-3.18, 0, -16.28],
+                "rotation": [0, 180, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [4.77, 0, -16.28],
+                "rotation": [0, 180, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+            {
+                "name": "fence",
+                "scale": [2.5, 2.5, 2.5],
+                "position": [-4.77, 0, -16.28],
+                "rotation": [0, 180, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fence",
+                        "material": "fence"
+                    }
+                ]
+            },
+
+            {
+                "name": "light",
+                "position": [5, 5, 5],
+                "rotation": [-50, 30, 0],
+                "components": [
+                    {
+                        "type": "Light",
+                        "lightType": "directional",
+                        "specular": [0.4, 0.4, 0.4],
+                        "diffuse": [0.25, 0.2, 0.2],
+                        "ambient": [0, 0, 0]
+                    }
+                ]
+            },
+            {
+                "name": "light",
+                "position": [5, 5, 5],
+                "rotation": [-50, -30, 0],
+                "components": [
+                    {
+                        "type": "Light",
+                        "lightType": "directional",
+                        "specular": [0.6, 0.6, 0.6],
+                        "diffuse": [0.8, 0.6, 0.6],
+                        "ambient": [0.4, 0.4, 0.4]
+                    }
+                ]
+            },
+            // {
+                //     "position": [0, 5, 0],
+                //     "rotation": [0, 0, 0],
+                //     "components": [
+                    //         {
+                        //             "type": "Light",
+                        //             "lightType": "point",
+                        //             "specular": [0, 1, 1],
+                        //             "diffuse": [1, 0, 0]
+                        //         }
+                        //     ]
+                        // },
+                        // {
+                            //     "position": [0, -3, 0],
+                            //     "rotation": [0, 0, 180],
+                            //     "components": [
+            //         {
+            //             "type": "Light",
+            //             "lightType": "spot",
+            //             "cone": [30, 10],
+            //             "specular": [0, 1, 1],
+            //             "diffuse": [1, 0, 0]
+            //         }
+            //     ]
+            // },
+
+            //asphalt
+            {
+                "name": "floor",
+                "position": [0, 0, 0],
+                "rotation": [-90, 0, 0],
+                "scale": [10, 10, 10],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "asphalt"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [0, 0, -20],
+                "rotation": [-90, 0, 0],
+                "scale": [10, 10, 10],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "asphalt"
+                    }
+                ]
+            },
+
+            //floor tiles
+            {
+                "name": "floor",
+                "position": [0, 0.05, -13],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [2, 0.05, -13],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-2, 0.05, -13],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [4, 0.05, -13],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-4, 0.05, -13],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [6, 0.05, -13],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-6, 0.05, -13],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [8, 0.05, -13],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-8, 0.05, -13],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [10, 0.05, -13],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-10, 0.05, -13],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [12, 0.05, -13],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-12, 0.05, -13],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            //
+            {
+                "name": "floor",
+                "position": [0, 0.05, -15],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [2, 0.05, -15],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-2, 0.05, -15],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [4, 0.05, -15],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-4, 0.05, -15],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [6, 0.05, -15],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-6, 0.05, -15],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [8, 0.05, -15],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-8, 0.05, -15],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [10, 0.05, -15],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-10, 0.05, -15],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [12, 0.05, -15],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-12, 0.05, -15],
+                "rotation": [-90, 0, 0],
+                "scale": [1, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            //finish message
+            {
+                "name": "floor",
+                "position": [0, 0.01, -11],
+                "rotation": [-90, 0, 0],
+                "scale": [6.8, 1, 1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "finish"
+                    }
+                ]
+            },
+            //stretched tiles
+            {
+                "name": "floor",
+                "position": [0, 0.005, -20],
+                "rotation": [-90, 0, 0],
+                "scale": [10, 10, 10],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [20, 0.005, -20],
+                "rotation": [-90, 0, 0],
+                "scale": [10, 10, 10],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-20, 0.005, -20],
+                "rotation": [-90, 0, 0],
+                "scale": [10, 10, 10],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [0, 0.005, -40],
+                "rotation": [-90, 0, 0],
+                "scale": [10, 10, 10],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [20, 0.005, -40],
+                "rotation": [-90, 0, 0],
+                "scale": [10, 10, 10],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-20, 0.005, -40],
+                "rotation": [-90, 0, 0],
+                "scale": [10, 10, 10],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [40, 0.005, -40],
+                "rotation": [-90, 0, 0],
+                "scale": [10, 10, 10],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            {
+                "name": "floor",
+                "position": [-40, 0.005, -40],
+                "rotation": [-90, 0, 0],
+                "scale": [10, 10, 10],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "tile"
+                    }
+                ]
+            },
+            //invisible boundries
+            {
+                "position": [5.565, 0, 2]
+            },
+            {
+                "position": [-5.565, 0, 2]
+            },
+            {
+                "position": [5.565, 0, -1.1]
+            },
+            {
+                "position": [-5.565, 0, -1.1]
+            },
+            {
+                "position": [5.565, 0, -6]
+            },
+            {
+                "position": [-5.565, 0, -6]
+            },
+            {
+                "position": [5.565, 0, -9.1]
+
+            },
+            {
+                "position": [-5.565, 0, -9.1]
+            },
+
+            //win state objects
+            {
+                "name": "win-parent",
+                "position": [0, -8, -20],
+                //monkee
+                "children":[
+                    {
+                        "position": [0, 3, 0],
+                        "rotation": [0, 0, 0],
+                        "components": [
+                            {
+                                "type": "Light",
+                                "lightType": "point",
+                                "specular": [0, 0, 0],
+                                "diffuse": [0, 0, 0],
+                                "ambient": [0, 0, 0]
+                            }
+                        ]
+                    },
+                    {
+                        "position": [0, -3, 0],
+                        "rotation": [-45, 0, 0],
+                        "components": [
+                            {
+                                "type": "Mesh Renderer",
+                                "mesh": "monkey",
+                                "material": "monkey"
+                            },
+                            {
+                                "type": "Movement",
+                                "linearVelocity": [0, 0.1, 0],
+                                "angularVelocity": [0, 45, 0]
+                            }
+                        ]
+                    },
+                    {
+                        "position": [0, 0, 5],
+                        "rotation": [-45, 0, 0],
+                        "components": [
+                            {
+                                "type": "Mesh Renderer",
+                                "mesh": "monkey",
+                                "material": "monkey-rough"
+                            },
+                            {
+                                "type": "Movement",
+                                "angularVelocity": [0, 45, 0]
+                            }
+                        ]
+                    },         
+                    {
+                        "position": [-5, 0, 0],
+                        "rotation": [-45, 0, 0],
+                        "components": [
+                            {
+                                "type": "Mesh Renderer",
+                                "mesh": "monkey",
+                                "material": "monkey-smooth"
+                            },
+                            {
+                                "type": "Movement",
+                                "angularVelocity": [0, 45, 0]
+                            }
+                        ]
+                    },
+                    {
+                        "position": [5, 0, 0],
+                        "rotation": [-45, 0, 0],
+                        "components": [
+                            {
+                                "type": "Mesh Renderer",
+                                "mesh": "monkey",
+                                "material": "monkey-emissive"
+                            },
+                            {
+                                "type": "Movement",
+                                "angularVelocity": [0, 45, 0]
+                            }
+                        ]
+                    },             
+                    {
+                        "position": [0, 1, 2],
+                        "rotation": [0, 0, 0],
+                        "scale": [2, 2, 2],
+                        "components": [
+                            {
+                                "type": "Mesh Renderer",
+                                "mesh": "plane",
+                                "material": "glass"
+                            }
+                        ]
+                    },
+                    {
+                        "position": [0, 1, -2],
+                        "rotation": [0, 0, 0],
+                        "scale": [2, 2, 2],
+                        "components": [
+                            {
+                                "type": "Mesh Renderer",
+                                "mesh": "plane",
+                                "material": "glass"
+                            }
+                        ]
+                    },
+                    {
+                        "position": [2, 1, 0],
+                        "rotation": [0, 90, 0],
+                        "scale": [2, 2, 2],
+                        "components": [
+                            {
+                                "type": "Mesh Renderer",
+                                "mesh": "plane",
+                                "material": "glass"
+                            }
+                        ]
+                    },
+                    {
+                        "position": [-2, 1, 0],
+                        "rotation": [0, 90, 0],
+                        "scale": [2, 2, 2],
+                        "components": [
+                            {
+                                "type": "Mesh Renderer",
+                                "mesh": "plane",
+                                "material": "glass"
+                            }
+                        ]
+                    },
+                    {
+                        "position": [0, 3, 0],
+                        "rotation": [90, 0, 0],
+                        "scale": [2, 2, 2],
+                        "components": [
+                            {
+                                "type": "Mesh Renderer",
+                                "mesh": "plane",
+                                "material": "glass"
+                            }
+                        ]
+                    }
+                ]
+            },
+            //invisible objects below ground
+            {
+                "name": "win-barrier",
+                "position": [0, -100, 0],
+                "children":
+                [
+                    {
+                        "position": [0, 0, -9.5]
+                    },
+                    {
+                        "position": [1.5, 0, -9.5]
+                    },
+                    {
+                        "position": [-1.5, 0, -9.5]
+                    },
+                    {
+                        "position": [3, 0, -9.5]
+                    },
+                    {
+                        "position": [-3, 0, -9.5]
+                    },
+                    {
+                        "position": [4.5, 0, -9.5]
+                    },
+                    {
+                        "position": [-4.5, 0, -9.5]
+                    },
+                    {
+                        "position": [6, 0, -9.5]
+                    },
+                    {
+                        "position": [-6, 0, -9.5]
+                    }
+                ]
+            }
+        ]
+    }
+}
